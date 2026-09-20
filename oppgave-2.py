@@ -4,7 +4,7 @@ def test(session_list):
 def register_session(session_list):
     # Tema for økten
     while True:
-        topic = input("Hva er tema for økten? ").strip()
+        topic = input("Hva er tema for økten? ").strip().capitalize()
         if topic == "":
             print("Du må fylle ut dette feltet.\n")
         else:
