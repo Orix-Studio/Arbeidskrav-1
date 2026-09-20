@@ -34,7 +34,7 @@ def register_session(session_list):
             print("Du må velge mellom 'Planlagt' eller 'Fullført'. Prøv igjen.\n")
 
     # Lagre økten med oppgitt data
-    session_list.append({"title": topic, "duration": duration, "status": status})
+    session_list.append({"topic": topic, "duration": duration, "status": status})
     print("Økten er registrert og lagret!")
 
 
