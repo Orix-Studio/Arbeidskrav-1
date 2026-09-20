@@ -44,7 +44,7 @@ def exit_program(session_list):
     return False
 
 
-menu = [
+menu = (
     {"title": "Registrer en studieøkt", "action": register_session},
     {"title": "Vis alle studieøkter", "action": test},
     {"title": "Vis bare fullførte studieøkter", "action": test},
@@ -52,7 +52,7 @@ menu = [
     {"title": "Sorter øktene etter varighet, lengst først", "action": test},
     {"title": "Vis samlet og gjennomsnittlig varighet for fullførte økter", "action": test},
     {"title": "Avslutt programmet", "action": exit_program},
-]
+)
 
 sessions = []
 
