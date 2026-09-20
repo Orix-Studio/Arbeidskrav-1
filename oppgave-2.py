@@ -50,6 +50,26 @@ def view_sessions(session_list):
         print("Det finnes ingen registrerte økter.")
 
 
+def completed_sessions(session_list):
+    if session_list:
+        completed_sessions = []
+        for session in session_list:
+            if session["status"] == "completed":
+                completed_sessions.append(session)
+
+        if completed_sessions:
+            for num, session in enumerate(completed_sessions, start=1):
+                print(f"Økt {num}:\n"
+                      f"Tema: {session['topic']}\n"
+                      f"Varighet: {session['duration']} minutter\n"
+                      f"Status: {'Planlagt' if session['status'] == 'planned' else 'Fullført'}\n")
+        else:
+            print("Det er ikke registrert noen fullførte økter.")
+
+    else:
+        print("Det finnes ingen registrerte økter.")
+
+
 def exit_program(session_list):
     # Enkel mulighet til å lagre listen i en ekstern fil ved ønske
     print("\nAvslutter programmet. Ha en fin dag!")
@@ -59,7 +79,7 @@ def exit_program(session_list):
 menu = (
     {"title": "Registrer en studieøkt", "action": register_session},
     {"title": "Vis alle studieøkter", "action": view_sessions},
-    {"title": "Vis bare fullførte studieøkter", "action": test},
+    {"title": "Vis bare fullførte studieøkter", "action": completed_sessions},
     {"title": "Søke etter et ord i temaet", "action": test},
     {"title": "Sorter øktene etter varighet, lengst først", "action": test},
     {"title": "Vis samlet og gjennomsnittlig varighet for fullførte økter", "action": test},
