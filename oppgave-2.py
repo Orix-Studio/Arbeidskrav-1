@@ -52,13 +52,13 @@ def view_sessions(session_list):
 
 def completed_sessions(session_list):
     if session_list:
-        completed_sessions = []
+        completed_sessions_list = []
         for session in session_list:
             if session["status"] == "completed":
-                completed_sessions.append(session)
+                completed_sessions_list.append(session)
 
-        if completed_sessions:
-            for num, session in enumerate(completed_sessions, start=1):
+        if completed_sessions_list:
+            for num, session in enumerate(completed_sessions_list, start=1):
                 print(f"Økt {num}:\n"
                       f"Tema: {session['topic']}\n"
                       f"Varighet: {session['duration']} minutter\n"
