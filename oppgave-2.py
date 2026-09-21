@@ -109,6 +109,24 @@ def search_sessions(session_list):
         print("Det finnes ingen registrerte økter.")
 
 
+def sort_duration(session_list):
+    if session_list:
+        # New list with sessions sorted from longest to shortest
+        sorted_sessions_list = sorted(session_list, key=lambda item: item["duration"], reverse=True)
+
+        # Printe den sorterte listen til brukeren
+        print(f"Økter sortert fra lengst til kortest:\n")
+        for session in sorted_sessions_list:
+            print(f"Tema: {session['topic']}\n"
+                  f"Varighet: {session['duration']} minutter\n"
+                  f"Status: {'Planlagt' if session['status'] == 'planned' else 'Fullført'}\n")
+
+
+    # Gir feilmelding til bruker hvis det ikke finnes noen registrerte økter
+    else:
+        print("Det er ikke registrert noen økter.")
+
+
 def exit_program(session_list):
     # Enkel mulighet til å lagre listen i en ekstern fil ved ønske
     print("\nAvslutter programmet. Ha en fin dag!")
@@ -120,7 +138,7 @@ menu = (
     {"title": "Vis alle studieøkter", "action": view_sessions},
     {"title": "Vis bare fullførte studieøkter", "action": completed_sessions},
     {"title": "Søke etter et ord i temaet", "action": search_sessions},
-    {"title": "Sorter øktene etter varighet, lengst først", "action": test},
+    {"title": "Sorter øktene etter varighet, lengst først", "action": sort_duration},
     {"title": "Vis samlet og gjennomsnittlig varighet for fullførte økter", "action": test},
     {"title": "Avslutt programmet", "action": exit_program},
 )
