@@ -144,3 +144,17 @@ def exit_program(session_list):
     # Enkel mulighet til å lagre listen i en ekstern fil ved ønske
     print("\nAvslutter programmet. Ha en fin dag!")
     return False
+
+
+if __name__ == "__main__":
+    def spacer():
+        print("*" * 35)
+        print()
+
+
+    sessions = [{"topic": "Matte", "duration": 60, "status": "planned"}, {"topic": "Naturfag", "duration": 30, "status": "planned"}, {"topic": "KRLE", "duration": 90, "status": "completed"}, {"topic": "Gym", "duration": 20, "status": "planned"}]
+    functions = [register_session, view_sessions, completed_sessions, search_sessions, sort_duration, combined_average_time, exit_program]
+
+    for function in functions:
+        function(sessions)
+        spacer()
