@@ -127,6 +127,23 @@ def sort_duration(session_list):
         print("Det er ikke registrert noen økter.")
 
 
+def combined_average_time(session_list):
+    if session_list:
+        # Legge sammen tid for alle økter
+        combined_time = 0
+        for session in session_list:
+            combined_time += session["duration"]
+
+        # Printe ut samlet tid og gjennomsnittstid for all økter
+        print(f"Samlet tid for øktene dine er: {combined_time} minutter\n"
+              f"Gjennomsnittstiden for øktene dine er: {int(combined_time / len(session_list))} minutter\n")
+
+
+    # Gir feilmelding til bruker hvis det ikke finnes noen registrerte økter
+    else:
+        print("Det er ikke registrert noen økter.")
+
+
 def exit_program(session_list):
     # Enkel mulighet til å lagre listen i en ekstern fil ved ønske
     print("\nAvslutter programmet. Ha en fin dag!")
@@ -139,7 +156,7 @@ menu = (
     {"title": "Vis bare fullførte studieøkter", "action": completed_sessions},
     {"title": "Søke etter et ord i temaet", "action": search_sessions},
     {"title": "Sorter øktene etter varighet, lengst først", "action": sort_duration},
-    {"title": "Vis samlet og gjennomsnittlig varighet for fullførte økter", "action": test},
+    {"title": "Vis samlet og gjennomsnittlig varighet for fullførte økter", "action": combined_average_time},
     {"title": "Avslutt programmet", "action": exit_program},
 )
 
