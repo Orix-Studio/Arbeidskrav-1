@@ -18,5 +18,5 @@ def study():
                 print(f"Total study time is {total_study_hours} hours and {total_study_minutes} minutes.")
 
                 break
-        except:
+        except ValueError:
             print("Please enter whole numbers for both inputs.\n")
