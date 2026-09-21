@@ -32,5 +32,5 @@ def number_row():
                 print(sum(all_numbers))
 
                 break
-        except:
+        except ValueError:
             print("Please enter whole numbers for both inputs.\n")
