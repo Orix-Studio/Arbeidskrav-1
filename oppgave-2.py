@@ -70,6 +70,36 @@ def completed_sessions(session_list):
         print("Det finnes ingen registrerte økter.")
 
 
+def search_sessions(session_list):
+    if session_list:
+        search_sessions_list = [] # Liste for økter som matcher søkeord
+        while True:
+            # Etterspør søkeord, godtar ikke et tomt felt
+            search_input = input("Søk etter tema i øktene dine: ").strip().lower()
+            if search_input != "":
+                break
+
+        # Går gjennom alle sessions, og legger økter som matcher søkeord inn i egen liste
+        for session in session_list:
+            if search_input in session["topic"].lower():
+                search_sessions_list.append(session)
+
+        # Sjekker om den nye listen med matchende økter er tom, deretter printer ut øktene om listen inneholder økter
+        if search_sessions_list:
+            print(f"Økter med søkeordet '{search_input}':\n")
+            for session in search_sessions_list:
+                print(f"Tema: {session['topic']}\n"
+                      f"Varighet: {session['duration']} minutter\n"
+                      f"Status: {'Planlagt' if session['status'] == 'planned' else 'Fullført'}\n")
+
+        else:
+            print(f"Det finnes ingen temaer med søkeordet '{search_input}'.")
+
+    # Printer feilmelding hvis det ikke finnes noen økter å matche søkeord mot
+    else:
+        print("Det finnes ingen registrerte økter.")
+
+
 def exit_program(session_list):
     # Enkel mulighet til å lagre listen i en ekstern fil ved ønske
     print("\nAvslutter programmet. Ha en fin dag!")
@@ -80,7 +110,7 @@ menu = (
     {"title": "Registrer en studieøkt", "action": register_session},
     {"title": "Vis alle studieøkter", "action": view_sessions},
     {"title": "Vis bare fullførte studieøkter", "action": completed_sessions},
-    {"title": "Søke etter et ord i temaet", "action": test},
+    {"title": "Søke etter et ord i temaet", "action": search_sessions},
     {"title": "Sorter øktene etter varighet, lengst først", "action": test},
     {"title": "Vis samlet og gjennomsnittlig varighet for fullførte økter", "action": test},
     {"title": "Avslutt programmet", "action": exit_program},
