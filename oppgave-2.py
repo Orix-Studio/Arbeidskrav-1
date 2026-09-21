@@ -40,32 +40,41 @@ def register_session(session_list):
 
 
 def view_sessions(session_list):
+    # Går gjennom alle økter og printer dem ut i brukervennlig format, hvis det finnes registrerte økter
     if session_list:
         for num, session in enumerate(session_list, start=1):
             print(f"Økt {num}:\n"
                   f"Tema: {session['topic']}\n"
                   f"Varighet: {session['duration']} minutter\n"
                   f"Status: {'Planlagt' if session['status'] == 'planned' else 'Fullført'}\n")
+
+    # Gir feilmelding hvis det ikke finnes noen registrerte økter
     else:
         print("Det finnes ingen registrerte økter.")
 
 
 def completed_sessions(session_list):
     if session_list:
-        completed_sessions_list = []
+        completed_sessions_list = [] # Liste for fullførte økter
+
+        # Sjekker gjennom hver økt og legger den til i den nye listen hvis status == "completed"
         for session in session_list:
             if session["status"] == "completed":
                 completed_sessions_list.append(session)
 
+        # Sjekker om det er noen fullførte økter som er lagt til i den nye listen, deretter går gjennom hver økt og printer ut dataene for øktene.
         if completed_sessions_list:
             for num, session in enumerate(completed_sessions_list, start=1):
                 print(f"Økt {num}:\n"
                       f"Tema: {session['topic']}\n"
                       f"Varighet: {session['duration']} minutter\n"
                       f"Status: {'Planlagt' if session['status'] == 'planned' else 'Fullført'}\n")
+
+        # Gir feedback hvis det ikke finnes noen fullførte økter
         else:
             print("Det er ikke registrert noen fullførte økter.")
 
+    # Gir feilmelding til bruker hvis det ikke finnes noen registrerte økter
     else:
         print("Det finnes ingen registrerte økter.")
 
