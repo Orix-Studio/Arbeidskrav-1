@@ -25,5 +25,5 @@ while True:
         else:
             print("Invalid choice. Please enter one of the options below.\n")
 
-    except:
+    except ValueError:
         print("Value entered is invalid.\n")
