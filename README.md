@@ -61,3 +61,134 @@ sorted_sessions_list = sorted(session_list, key=lambda item: item["duration"], r
 
 Denne linjen bruker sorted isteden for .sort(). Hovedforskjellen er at .sort() sorterer en allerede eksisterende liste, mens sorted lager en ny liste med dataene fra listen man oppgir.
 Denne linjen fra KI gir meg en ny liste der key blir satt til gjeldende varighet for økten, for hver økt i listen. Deretter sorteres den ved hjelp av key på hver item, baklengs ettersom reverse=True. Da blir resultatet en ny liste der hver økt er sortert fra lengst til kortest varighet.
+
+
+
+Oppgave 3:
+NB! Denne oppgaven er løst med MINIMAL bruk av KI
+
+DATETIME FUNKSJONER BENYTTET FRA PYTHON DOCS: 
+datetime.date() - opprette og validere datoer
+datetime.time() - opprette og validere tidspunkter
+datetime.combine() - kombinere date og time for å få en datetime-verdi
+timedelta() - Gjøre timer og minutter mulig å kombinere med en datetime for å finne en slutt-tid for økten (Startdato og tidspunkt + antall timer og minutter)
+strftime() - Gjøre datetime-verdi om til menneskelig format, f.eks. (Monday, 15. December 2026)
+https://docs.python.org/3/library/datetime.html
+
+Bruk av KI:
+Jeg brukte KI for å sortere dictionariet med forskjellige klasser. Jeg spurte KI om følgende:
+"Hvordan sorterer jeg en dictionary med klasser i dette formatet":
+class_list {
+   2025-12-24 10:00:00: {
+      "start": 2025-12-24 10:00:00,
+      "hours": 1,
+      "minutes": 0,
+      "end": 2025-12-24 11:00:00,
+   }
+   2025-12-25 10:00:00: {
+      "start": 2025-12-25 10:00:00,
+      "hours": 1,
+      "minutes": 0,
+      "end": 2025-12-25 11:00:00,
+   }
+}
+
+Da fikk jeg denne linjen til svar:
+sorted_class_list = {key: class_list[key] for key in sorted(class_list)}
+
+Det denne linjen med kode gjør er at den oppretter et nytt dictionary for listen. Det nye dictionariet sorterer hver item, og bruker datetime som key for å sortere. 
+Det eneste problemet her er at det ikke var mulig å ha flere klasser med samme start-tid, for da ble også key for disse identiske.
+
+Løsningen jeg kom opp med var å endre hele class_list til en liste [], i steden for et dictionary {}.
+Deretter endret jeg sorteringen til å sortere gjennom item['start'] inni hver enkel item.
+sorted_class_list = sorted(class_list, key=lambda item: item['start'])
+
+TESTTILFELLER:
+
+TEST 1 - OPPRETTING AV STUDIEØKT:
+Input:
+Startdato: 15.10.2005
+Starttid: 10:00
+Varighet (m): 60
+
+Output:
+The class starts Thursday, 15. October 2026 at 10:00.
+The class ends Thursday, 15. October 2026 at 11:00.
+The class lasts 1 hour and 00 minutes.
+
+
+TEST 2 - STUDIEØKT OVER MIDNATT:
+Input:
+Startdato: 22.9.2026
+Starttid: 23:30
+Varighet (m): 90
+
+Output:
+The class starts Tuesday, 22. September 2026 at 23:30.
+The class ends Wednesday, 23. September 2026 at 01:00.
+The class lasts 1 hour and 30 minutes.
+
+
+TEST 3 - FEIL DATOFORMAT:
+Input:
+Startdato: 2026-10-15
+
+Output:
+Date format is submitted wrong. Try again.
+
+
+TEST 4 - UGYLDIG DATO:
+Input:
+Startdato: 31.2.2026
+
+Output:
+Date is not valid. Try again.
+
+
+TEST 5 - UGYLDIG KLOKKESLETT:
+Input:
+Starttid: 25:00
+
+Output:
+Time is not valid. Try again.
+
+
+TEST 6 - VARIGHET OPPGITT SOM STRING:
+Input:
+Varighet: Twenty
+
+Output:
+Time is not valid. Try again.
+
+
+TEST 7 - VARIGHET SATT TIL 0 MINUTTER:
+Input:
+Varighet: 0
+
+Output:
+Length cannot be 0 or below.
+
+
+TEST 8 - DATOER OPPGIS I FEIL REKKEFØLGE, VED KALKULERING AV ANTALL DAGER MELLOM 2 DATOER:
+Input:
+Første dato: 20.9.2026
+Andre dato: 15.9.2026
+
+Output:
+There is 5 days between the two dates. (This is because I use abs() around the calculation. -5 therefore shows as 5)
+
+
+TEST 9 - SORTERING AV STUDIEØKTER:
+Første registrerte studieøkt: 15.10.2026 10:00
+Andre registrerte studieøkt: 10.10.2026 10:00
+
+Output:
+1. class:
+Start: 2026-10-10 10:00:00
+End: 2026-10-10 11:00:00
+Duration: 1 hours and 0 minutes
+
+2. class:
+Start: 2026-10-15 10:00:00
+End: 2026-10-15 11:00:00
+Duration: 1 hours and 0 minutes
