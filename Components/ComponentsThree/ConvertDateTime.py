@@ -44,6 +44,9 @@ def convert_minutes():
                 total_minutes = length_input % 60
 
                 return timedelta(hours=total_hours, minutes=total_minutes)
+            
+            else:
+                print("Length cannot be 0 or below.\n")
         except ValueError:
             print("Time is not valid. Try again.\n")
 
