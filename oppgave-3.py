@@ -1,7 +1,7 @@
 from datetime import datetime
 from Components.ComponentsThree.ConvertDateTime import convert_date, convert_time, convert_minutes, convert_datetime_output, sort_print_class
 
-class_list = {}
+class_list = []
 
 while True:
     print("\n"
@@ -30,7 +30,6 @@ while True:
 
 
             # Storage format
-            new_date = str(study_start)
             new_class_details = {
                 "start": str(study_start),
                 "hours": int(study_hours),
@@ -39,7 +38,7 @@ while True:
             }
 
             # Store class in object
-            class_list[new_date] = new_class_details
+            class_list.append(new_class_details)
 
 
         elif menu_choice == 2:

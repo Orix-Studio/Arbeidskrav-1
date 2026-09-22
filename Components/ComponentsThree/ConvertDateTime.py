@@ -58,12 +58,11 @@ def convert_datetime_output(current_date):
 
 # Sort and print class list
 def sort_print_class(class_list):
-    sorted_class_list = {key: class_list[key] for key in sorted(class_list)}
+    sorted_class_list = sorted(class_list, key=lambda item: item['start'])
     class_number = 0
-    for date in sorted_class_list:
+    for class_item in sorted_class_list:
         class_number += 1
-        details = sorted_class_list[date]
         print(f"{class_number}. class:\n"
-            f"Start: {details['start']}\n"
-            f"End: {details['end']}\n"
-            f"Duration: {details['hours']} hours and {details['minutes']} minutes\n")
+            f"Start: {class_item['start']}\n"
+            f"End: {class_item['end']}\n"
+            f"Duration: {class_item['hours']} hours and {class_item['minutes']} minutes\n")
