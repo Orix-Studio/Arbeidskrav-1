@@ -211,3 +211,14 @@ Ingen bruk av KI.
 Oppgaven er merget med 4.2 for å unngå duplikate handlinger og prosesser.
 
 Ugyldige rader vises allerede i terminalen fra Oppgave 4.1, og er ikke med i analysen eller rapporten.
+
+
+Oppgave 4.4:
+Jeg fant og fikset 4 feil som gjør at funksjonen nå fungerer:
+
+1. "str | int" støttes ikke av Python 3.9, og må endres til Union[str, int] (Pycharm ga tilsvarende feilmelding).
+2. Endre = med == som er riktig syntax for å matche verdier.
+3. Endre = til += for å addere totalen med gjeldende minutter, og ikke erstatte total med gjeldende minutter.
+4. Returnere total, isteden for total_minutes, ettersom total_minutes ikke finnes og har ingen verdi å returnere.
+
+Jeg har kommentert per linje i oppgave-4.py, der jeg har rettet opp en feil. Jeg har også testet funksjonen og sett at den fungerer med fiktive data.

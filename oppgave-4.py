@@ -1,4 +1,5 @@
 # Task 4.1
+from typing import Union
 
 valid_tickets = []
 invalid_tickets = []
@@ -183,3 +184,20 @@ with open("support-rapport.txt", "w", encoding="utf-8") as report_file:
     # Write last updated
     import datetime
     report_file.write(f"\nLast updated {datetime.datetime.now().strftime('%d.%m.%Y %H:%M')}")
+
+
+
+# Task 4.4
+def sum_resolved_minutes(requests: list[dict[str, Union[str, int]]]) -> int: # str | int støttes ikke av Python 3.9, og må endres til Union[str, int]
+    total = 0
+    for request in requests:
+        if request["is_resolved"] == "yes": # Endre = til == som er riktig syntax for å matche verdier
+            total += request["minutes"] # Endre = til += for å addere totalen med gjeldende minutter
+
+    return total # Endre total_minutes til total, ettersom det ikke finnes noen total_minutes variabel å returnere
+
+# Test List for function above
+request_list = [{"is_resolved": "yes", "minutes": 15}, {"is_resolved": "yes", "minutes": 30}, {"is_resolved": "no", "minutes": 60},]
+
+print("\nTesting script after resolving bugs:")
+print(f"Total minutes for resolved tickets: {sum_resolved_minutes(request_list)} minutes")
