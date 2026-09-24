@@ -204,3 +204,8 @@ Brukte Google for å finne ut hvordan jeg kunne korte float ned til én desimal.
 Kilde: https://www.geeksforgeeks.org/python/how-to-round-floating-value-to-two-decimals-in-python/
 
 
+Oppgave 4.3:
+Ingen bruk av KI.
+Oppgaven er merget med 4.2 for å unngå duplikate handlinger og prosesser.
+
+Ugyldige rader vises allerede i terminalen fra Oppgave 4.1, og er ikke med i analysen eller rapporten.

@@ -70,78 +70,116 @@ with open("supporthenvendelser.csv", "r", encoding="utf-8") as file:
 print("*" * 30 + "\n") # Spacer
 
 
-# Task 4.2
-print("Support Ticket Analysis:\n")
+# Task 4.2 AND 4.3
+with open("support-rapport.txt", "w", encoding="utf-8") as report_file:
+
+    print("Support Ticket Analysis:\n")
 
 
-# Valid/Invalid ticket count
-valid_count, invalid_count = len(valid_tickets), len(invalid_tickets)
+    # Valid/Invalid ticket count
+    valid_count, invalid_count = len(valid_tickets), len(invalid_tickets)
 
-print(f"Valid tickets: {valid_count}\n"
-      f"Invalid tickets: {invalid_count}\n")
+    print(f"Valid tickets: {valid_count}\n"
+          f"Invalid tickets: {invalid_count}\n")
 
-
-# Total/Average duration
-total_minutes = 0
-
-for ticket in valid_tickets:
-    ticket_minutes = int(ticket[2])
-    total_minutes += ticket_minutes
-
-average_minutes = total_minutes / valid_count
-
-print(f"Total minutes: {total_minutes}\n"
-      f"Average minutes: {average_minutes:.1f}\n")
+    # Write to report file
+    report_file.write(f"VALID/INVALID TICKETS: \n"
+                      f"Valid tickets: {valid_count}\n"
+                      f"Invalid tickets: {invalid_count}\n\n\n")
 
 
-# Total resolved/unresolved tickets
-resolved_count = 0
-unresolved_count = 0
+    # Total/Average duration
+    total_minutes = 0
 
-for ticket in valid_tickets:
-    if ticket[3] == "yes":
-        resolved_count += 1
-    elif ticket[3] == "no":
-        unresolved_count += 1
+    for ticket in valid_tickets:
+        ticket_minutes = int(ticket[2])
+        total_minutes += ticket_minutes
 
-print(f"Resolved tickets: {resolved_count}\n"
-      f"Unresolved tickets: {unresolved_count}\n")
+    average_minutes = total_minutes / valid_count
+
+    print(f"Total minutes: {total_minutes}\n"
+          f"Average minutes: {average_minutes:.1f}\n")
+
+    # Write to report file
+    report_file.write(f"TOTAL MINUTES: \n"
+                      f"Total minutes: {total_minutes}\n"
+                      f"Average minutes: {average_minutes:.1f}\n\n\n")
 
 
-# Sorted Category Count
-category_count = {}
+    # Total resolved/unresolved tickets
+    resolved_count = 0
+    unresolved_count = 0
 
-for ticket in valid_tickets:
-    if ticket[1]:
-        if ticket[1] in category_count:
-            category_count[ticket[1]] += 1
+    for ticket in valid_tickets:
+        if ticket[3] == "yes":
+            resolved_count += 1
+        elif ticket[3] == "no":
+            unresolved_count += 1
+
+    print(f"Resolved tickets: {resolved_count}\n"
+          f"Unresolved tickets: {unresolved_count}\n")
+
+    # Write to report file
+    report_file.write(f"RESOLVED TICKETS: \n"
+                      f"Resolved tickets: {resolved_count}\n"
+                      f"Unresolved tickets: {unresolved_count}\n\n\n")
+
+
+    # Sorted Category Count
+    category_count = {}
+
+    for ticket in valid_tickets:
+        if ticket[1]:
+            if ticket[1] in category_count:
+                category_count[ticket[1]] += 1
+            else:
+                category_count[ticket[1]] = 1
         else:
-            category_count[ticket[1]] = 1
-    else:
-        if "Uncategorized" in category_count:
-            category_count["Uncategorized"] += 1
-        else:
-            category_count["Uncategorized"] = 1
+            if "Uncategorized" in category_count:
+                category_count["Uncategorized"] += 1
+            else:
+                category_count["Uncategorized"] = 1
 
-sorted_category_list = sorted(category_count.items(), key=lambda item: item[1], reverse=True)
+    sorted_category_list = sorted(category_count.items(), key=lambda item: item[1], reverse=True)
 
-print("Ticket category count (high-low):")
-for category, count in sorted_category_list:
-    print(f"{category.capitalize()}: {count}")
+    print("Ticket category count (high-low):")
 
-print()
+    # Write to report file
+    report_file.write(f"Category count (high-low):\n")
+
+    for category, count in sorted_category_list:
+        print(f"{category.capitalize()}: {count}")
+
+        # Write to report file
+        report_file.write(f"{category.capitalize()}: {count}\n")
+
+    print()
+    report_file.write("\n\n") # Spacer in report file
 
 
-# Sorted Unresolved ticket duration
-unresolved_tickets = []
+    # Sorted Unresolved ticket duration
+    unresolved_tickets = []
 
-for ticket in valid_tickets:
-    if ticket[3] == "no":
-        unresolved_tickets.append(ticket)
+    for ticket in valid_tickets:
+        if ticket[3] == "no":
+            unresolved_tickets.append(ticket)
 
-sorted_unresolved_tickets = sorted(unresolved_tickets, key=lambda item: item[2], reverse=True)
+    sorted_unresolved_tickets = sorted(unresolved_tickets, key=lambda item: item[2], reverse=True)
 
-print("Unresolved tickets sorted by duration (high-low):\n")
-for unresolved_ticket in sorted_unresolved_tickets:
-    print(f"Unresolved ticket #{unresolved_ticket[0]}\n"
-          f"Duration: {unresolved_ticket[2]} minutes\n")
+    print("Unresolved tickets sorted by duration (high-low):\n")
+
+    # Write to report file
+    report_file.write("Unresolved tickets sorted by duration (high-low):\n\n")
+
+    for unresolved_ticket in sorted_unresolved_tickets:
+        print(f"Unresolved ticket #{unresolved_ticket[0]}\n"
+              f"Duration: {unresolved_ticket[2]} minutes\n")
+
+        # Write to report file
+        report_file.write(f"Unresolved ticket #{unresolved_ticket[0]}\n"
+                          f"Duration: {unresolved_ticket[2]} minutes\n\n")
+
+
+    # Write last updated
+    import datetime
+    report_file.write(f"\nLast updated {datetime.datetime.now().strftime('%d.%m.%Y %H:%M')}")
