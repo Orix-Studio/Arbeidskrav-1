@@ -1,5 +1,7 @@
 Noah Holmvik
 
+GITHUB REPO:
+https://github.com/Orix-Studio/Arbeidskrav-1
 
 Oppgave 1:
 NB! Denne oppgaven er løst UTEN bruk av KI
