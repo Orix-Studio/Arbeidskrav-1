@@ -192,3 +192,15 @@ Duration: 1 hours and 0 minutes
 Start: 2026-10-15 10:00:00
 End: 2026-10-15 11:00:00
 Duration: 1 hours and 0 minutes
+
+
+
+Oppgave 4.1:
+Ingen bruk av KI, kun leksjonen "Python 8- Wednesday: File Handling (File I/O)" i MinGA.
+
+
+Oppgave 4.2:
+Brukte Google for å finne ut hvordan jeg kunne korte float ned til én desimal.
+Kilde: https://www.geeksforgeeks.org/python/how-to-round-floating-value-to-two-decimals-in-python/
+
+
