@@ -1,0 +1,45 @@
+VALID/INVALID TICKETS: 
+Valid tickets: 16
+Invalid tickets: 4
+
+
+TOTAL MINUTES: 
+Total minutes: 487
+Average minutes: 30.4
+
+
+RESOLVED TICKETS: 
+Resolved tickets: 10
+Unresolved tickets: 6
+
+
+Category count (high-low):
+Utstyr: 5
+Innlogging: 4
+Programvare: 4
+Nettverk: 2
+Uncategorized: 1
+
+
+Unresolved tickets sorted by duration (high-low):
+
+Unresolved ticket #13
+Duration: 63 minutes
+
+Unresolved ticket #4
+Duration: 55 minutes
+
+Unresolved ticket #10
+Duration: 48 minutes
+
+Unresolved ticket #2
+Duration: 42 minutes
+
+Unresolved ticket #17
+Duration: 39 minutes
+
+Unresolved ticket #7
+Duration: 35 minutes
+
+
+Last updated 24.09.2026 15:52
