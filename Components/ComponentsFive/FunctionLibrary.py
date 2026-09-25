@@ -3,10 +3,11 @@ def test(activities):
 
 
 class Activity:
-    def __init__(self, title, category, date, estimated_minutes, status):
+    def __init__(self, title, category, date, date_format, estimated_minutes, status):
         self.title = title
         self.category = category
         self.date = date
+        self.date_format = date_format
         self.estimated_minutes = estimated_minutes
         self.status = status
 
