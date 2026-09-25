@@ -1,4 +1,4 @@
-from Components.ComponentsFive.FunctionLibrary import register_show_activities, search_title_category, filter_status, sort_date_duration, mark_completed, activity_statistics, save_exit_program
+from Components.ComponentsFive.FunctionLibrary import Activity, register_show_activities, search_title_category, filter_status, sort_date_duration, mark_completed, activity_statistics, save_exit_program
 
 menu = (
     {"title": "Registrer og vis aktiviteter", "action": register_show_activities},
@@ -11,6 +11,28 @@ menu = (
 )
 
 activities = []
+
+# Check for saved activities and import
+try:
+    with open("activities.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            split_line = line.strip().split(",")
+
+            if len(split_line) == 6:
+                title = split_line[0]
+                category = split_line[1]
+                date = split_line[2]
+                date_format = split_line[3]
+                estimated_minutes = int(split_line[4])
+                status = split_line[5]
+
+                imported_activity = Activity(title, category, date, date_format, estimated_minutes, status)
+                activities.append(imported_activity)
+
+except FileNotFoundError:
+    print("Fant ingen lagrede aktiviteter å importere i activities.txt.")
+    # Catch Error if file doesn't exist
+
 program_status = True
 
 while program_status:
