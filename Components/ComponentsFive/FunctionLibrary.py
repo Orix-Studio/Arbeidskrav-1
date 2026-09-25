@@ -49,7 +49,7 @@ def register_show_activities(activities):
 
                     if len(date_split) == 3:
                         try:
-                            datetime.date(int(date_split[2]), int(date_split[1]), int(date_split[0]))
+                            date_format = datetime.date(int(date_split[2]), int(date_split[1]), int(date_split[0]))
                             break
                         except ValueError:
                             print("Ugyldig dato. Prøv igjen.\n")
@@ -74,7 +74,7 @@ def register_show_activities(activities):
                         print("Ugyldig status. Du må velge mellom 'planlagt' eller 'fullført'.\n")
 
 
-                summary = Activity(title, category, date, minutes, status)
+                summary = Activity(title, category, date, date_format, minutes, status)
                 print(f"\nOppsummering:\n"
                       f"{summary}")
 
