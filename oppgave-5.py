@@ -19,15 +19,20 @@ try:
             split_line = line.strip().split(",")
 
             if len(split_line) == 6:
-                title = split_line[0]
-                category = split_line[1]
-                date = split_line[2]
-                date_format = split_line[3]
-                estimated_minutes = int(split_line[4])
-                status = split_line[5]
+                try:
+                    title = split_line[0]
+                    category = split_line[1]
+                    date = split_line[2]
+                    date_format = (split_line[3])
+                    estimated_minutes = int(split_line[4])
+                    status = split_line[5]
 
-                imported_activity = Activity(title, category, date, date_format, estimated_minutes, status)
-                activities.append(imported_activity)
+                    imported_activity = Activity(title, category, date, date_format, estimated_minutes, status)
+                    activities.append(imported_activity)
+
+                except ValueError:
+                    print(f"En feil oppstod ved formattering av følgende aktivitet:\n"
+                          f"{split_line}\n")
 
 except FileNotFoundError:
     print("Fant ingen lagrede aktiviteter å importere i activities.txt.")
