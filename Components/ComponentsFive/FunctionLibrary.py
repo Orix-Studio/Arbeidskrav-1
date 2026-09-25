@@ -234,6 +234,41 @@ def filter_status(activities):
         print("Det finnes ingen registrerte aktiviteter å filtrere.")
 
 
+def sort_date_duration(activities):
+    if activities:
+        while True:
+            try:
+                input_choice = int(input("1. Sorter på dato\n"
+                                         "2. Sorter på varighet\n"
+                                         "3. Gå tilbake til menyen\n\n"
+                                         "Velg en handling: "))
+
+                if input_choice == 1:
+                    sorted_date = sorted(activities, key=lambda item: item.date_format)
+
+                    print("Aktiviteter sortert på dato:\n")
+                    for activity in sorted_date:
+                        print(activity)
+
+                elif input_choice == 2:
+                    sorted_duration = sorted(activities, key=lambda item: item.estimated_minutes)
+
+                    print("Aktiviteter sortert på varighet:\n")
+                    for activity in sorted_duration:
+                        print(activity)
+
+                elif input_choice == 3:
+                    break
+
+                else:
+                    print("Tallet finnes ikke i menyen. Prøv igjen.\n")
+
+            except ValueError:
+                print("Du må skrive inn et heltall fra menyen over.\n")
+
+    else:
+        print("Det finnes ingen registrerte aktiviteter å sortere.")
+
 def save_exit_program(activities):
     if activities:
         with open("activities.txt", "w", encoding="utf-8") as file:
