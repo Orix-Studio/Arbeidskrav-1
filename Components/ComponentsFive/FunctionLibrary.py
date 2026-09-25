@@ -10,6 +10,13 @@ class Activity:
         self.estimated_minutes = estimated_minutes
         self.status = status
 
+    def __str__(self):
+        return (f"{self.title}\n"
+                f"{self.category}\n"
+                f"{self.date}\n"
+                f"{self.estimated_minutes}\n"
+                f"{self.status}\n")
+
 
 def save_exit_program(activities):
     if activities:
