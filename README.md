@@ -234,4 +234,5 @@ Min GA: Python10-Wednesday: Classes, Objects & Assignment Preparation
 
 
 Oppgave 6: 
-Video lagt ved som fil 'oppgave-6.mov'
+Video-lenke: 
+https://gokstadakademietas-my.sharepoint.com/:v:/g/personal/noa_hol535_gokstadakademiet_no/IQAc-tsqqGIlRaQnfFvISDTlAaWwhIiQB2VUaKYZ0rUcUPs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=riOo4G
