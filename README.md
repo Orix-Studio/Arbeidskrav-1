@@ -230,3 +230,8 @@ INGEN bruk av KI for denne oppgaven
 
 Dokumentasjon brukt for bruk av klasse:
 Min GA: Python10-Wednesday: Classes, Objects & Assignment Preparation
+
+
+
+Oppgave 6: 
+Video lagt ved som fil 'oppgave-6.mov'
