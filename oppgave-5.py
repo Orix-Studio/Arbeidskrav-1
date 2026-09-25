@@ -1,7 +1,7 @@
-from Components.ComponentsFive.FunctionLibrary import test, save_exit_program
+from Components.ComponentsFive.FunctionLibrary import test, register_show_activities, save_exit_program
 
 menu = (
-    {"title": "Registrer og vis aktiviteter", "action": test},
+    {"title": "Registrer og vis aktiviteter", "action": register_show_activities},
     {"title": "Søk etter tittel eller kategori", "action": test},
     {"title": "Filtrer etter status", "action": test},
     {"title": "Sorter etter dato eller varighet", "action": test},
