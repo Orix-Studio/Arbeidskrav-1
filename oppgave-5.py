@@ -1,4 +1,4 @@
-from Components.ComponentsFive.FunctionLibrary import test, register_show_activities, search_title_category, filter_status, sort_date_duration, mark_completed, save_exit_program
+from Components.ComponentsFive.FunctionLibrary import test, register_show_activities, search_title_category, filter_status, sort_date_duration, mark_completed, activity_statistics, save_exit_program
 
 menu = (
     {"title": "Registrer og vis aktiviteter", "action": register_show_activities},
@@ -6,7 +6,7 @@ menu = (
     {"title": "Filtrer etter status", "action": filter_status},
     {"title": "Sorter etter dato eller varighet", "action": sort_date_duration},
     {"title": "Marker en aktivitet som fullført", "action": mark_completed},
-    {"title": "Vis antall aktiviteter, samlet estimert tid og antall fullførte", "action": test},
+    {"title": "Vis antall aktiviteter, planlagte/fullførte og samlet estimert tid", "action": activity_statistics},
     {"title": "Lagre og avslutt program", "action": save_exit_program},
 )
 

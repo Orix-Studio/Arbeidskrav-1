@@ -306,6 +306,31 @@ def mark_completed(activities):
         print("Det finnes ingen registrerte aktiviteter.")
 
 
+def activity_statistics(activities):
+    if activities:
+        activities_count = len(activities)
+
+        total_minutes = 0
+        planned_count = 0
+        complete_count = 0
+        for activity in activities:
+            total_minutes += activity.estimated_minutes
+
+            if activity.status == "planlagt":
+                planned_count += 1
+
+            elif activity.status == "fullført":
+                complete_count += 1
+
+        print(f"\nAntall aktiviteter: {activities_count}\n"
+              f"Antall planlagte aktiviteter: {planned_count}\n"
+              f"Antall fullførte aktiviteter: {complete_count}\n"
+              f"Totalt estimert tid: {total_minutes}\n")
+
+    else:
+        print("Det finnes ingen registrerte aktiviteter.")
+
+
 def save_exit_program(activities):
     if activities:
         with open("activities.txt", "w", encoding="utf-8") as file:
