@@ -1,4 +1,4 @@
-from Components.ComponentsFive.FunctionLibrary import test, register_show_activities, search_title_category, filter_status, sort_date_duration, mark_completed, activity_statistics, save_exit_program
+from Components.ComponentsFive.FunctionLibrary import register_show_activities, search_title_category, filter_status, sort_date_duration, mark_completed, activity_statistics, save_exit_program
 
 menu = (
     {"title": "Registrer og vis aktiviteter", "action": register_show_activities},

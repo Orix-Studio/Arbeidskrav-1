@@ -1,7 +1,3 @@
-def test(activities):
-    print(f"Test {activities}")
-
-
 class Activity:
     def __init__(self, title, category, date, date_format, estimated_minutes, status):
         self.title = title
