@@ -321,7 +321,7 @@ def activity_statistics(activities):
         print(f"\nAntall aktiviteter: {activities_count}\n"
               f"Antall planlagte aktiviteter: {planned_count}\n"
               f"Antall fullførte aktiviteter: {complete_count}\n"
-              f"Totalt estimert tid: {total_minutes}\n")
+              f"Totalt estimert tid: {total_minutes} min\n")
 
     else:
         print("Det finnes ingen registrerte aktiviteter.")
