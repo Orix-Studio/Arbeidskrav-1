@@ -331,7 +331,7 @@ def save_exit_program(activities):
     if activities:
         with open("activities.txt", "w", encoding="utf-8") as file:
             for activity in activities:
-                file.write(f"{activity}\n")
+                file.write(f"{activity.title},{activity.category},{activity.date},{activity.date_format},{activity.estimated_minutes},{activity.status}\n")
 
             print("Lagrer og avslutter programmet. Ha en fin dag!")
             return False
