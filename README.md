@@ -222,3 +222,11 @@ Jeg fant og fikset 4 feil som gjør at funksjonen nå fungerer:
 4. Returnere total, isteden for total_minutes, ettersom total_minutes ikke finnes og har ingen verdi å returnere.
 
 Jeg har kommentert per linje i oppgave-4.py, der jeg har rettet opp en feil. Jeg har også testet funksjonen og sett at den fungerer med fiktive data.
+
+
+
+Oppgave 5:
+INGEN bruk av KI for denne oppgaven
+
+Dokumentasjon brukt for bruk av klasse:
+Min GA: Python10-Wednesday: Classes, Objects & Assignment Preparation

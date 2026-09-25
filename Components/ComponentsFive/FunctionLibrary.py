@@ -1,3 +1,4 @@
+# Activity class for storing and outputting activities
 class Activity:
     def __init__(self, title, category, date, date_format, estimated_minutes, status):
         self.title = title
@@ -15,6 +16,7 @@ class Activity:
                 f"Status: {self.status.capitalize()}\n")
 
 
+# Register and view all stored activities
 def register_show_activities(activities):
     while True:
         try:
@@ -114,6 +116,7 @@ def register_show_activities(activities):
             print("Du må skrive inn et heltall fra menyen over.\n")
 
 
+# Search for word in title or category
 def search_title_category(activities):
     if activities:
         while True:
@@ -180,6 +183,7 @@ def search_title_category(activities):
         print("Det finnes ingen registrerte aktiviteter å søke i.")
 
 
+# Filter between planned and completed activities
 def filter_status(activities):
     if activities:
         while True:
@@ -230,6 +234,7 @@ def filter_status(activities):
         print("Det finnes ingen registrerte aktiviteter å filtrere.")
 
 
+# Sort activities by date or duration
 def sort_date_duration(activities):
     if activities:
         while True:
@@ -266,6 +271,7 @@ def sort_date_duration(activities):
         print("Det finnes ingen registrerte aktiviteter å sortere.")
 
 
+# Change status for planned activity to completed
 def mark_completed(activities):
     if activities:
         planned_activities = []
@@ -302,6 +308,7 @@ def mark_completed(activities):
         print("Det finnes ingen registrerte aktiviteter.")
 
 
+# Calculate total activities, and activities for both statuses + total combined estimated minutes for all activities
 def activity_statistics(activities):
     if activities:
         activities_count = len(activities)
@@ -327,6 +334,7 @@ def activity_statistics(activities):
         print("Det finnes ingen registrerte aktiviteter.")
 
 
+#
 def save_exit_program(activities):
     if activities:
         with open("activities.txt", "w", encoding="utf-8") as file:

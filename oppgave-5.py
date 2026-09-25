@@ -35,8 +35,8 @@ try:
                           f"{split_line}\n")
 
 except FileNotFoundError:
-    print("Fant ingen lagrede aktiviteter å importere i activities.txt.")
     # Catch Error if file doesn't exist
+    print("Fant ingen lagrede aktiviteter å importere i activities.txt.")
 
 program_status = True
 
