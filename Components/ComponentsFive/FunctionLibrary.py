@@ -183,6 +183,55 @@ def search_title_category(activities):
         print("Det finnes ingen registrerte aktiviteter å søke i.")
 
 
+def filter_status(activities):
+    if activities:
+        while True:
+            try:
+                input_choice = int(input("1. Vis planlagte aktiviteter\n"
+                                         "2. Vis fullførte aktiviteter\n"
+                                         "3. Gå tilbake til menyen\n\n"
+                                         "Velg en handling: "))
+
+                if input_choice == 1:
+                    relevant_activities = []
+
+                    for activity in activities:
+                        if activity.status == "planlagt":
+                            relevant_activities.append(activity)
+
+                    if relevant_activities:
+                        for activity in relevant_activities:
+                            print(activity)
+
+                    else:
+                        print("Det finnes ingen planlagte aktiviteter.\n")
+
+                elif input_choice == 2:
+                    relevant_activities = []
+
+                    for activity in activities:
+                        if activity.status == "fullført":
+                            relevant_activities.append(activity)
+
+                    if relevant_activities:
+                        for activity in relevant_activities:
+                            print(activity)
+
+                    else:
+                        print("Det finnes ingen fullførte aktiviteter.\n")
+
+                elif input_choice == 3:
+                    break
+
+                else:
+                    print("Tallet finnes ikke i menyen. Prøv igjen.\n")
+
+            except ValueError:
+                print("Du må skrive inn et heltall fra menyen over.\n")
+
+    else:
+        print("Det finnes ingen registrerte aktiviteter å filtrere.")
+
 
 def save_exit_program(activities):
     if activities:
