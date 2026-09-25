@@ -117,6 +117,73 @@ def register_show_activities(activities):
             print("Du må skrive inn et heltall fra menyen over.\n")
 
 
+def search_title_category(activities):
+    if activities:
+        while True:
+            try:
+                input_choice = int(input("1. Søk i tittel\n"
+                                         "2. Søk i kategori\n"
+                                         "3. Gå tilbake til menyen\n\n"
+                                         "Velg en handling: "))
+
+                if input_choice == 1:
+                    while True:
+                        search_title = input("Søk etter tittel i aktiviteter: ").strip().lower()
+                        if search_title:
+                            relevant_activities = []
+
+                            for activity in activities:
+                                if search_title in activity.title.lower():
+                                    relevant_activities.append(activity)
+
+                            if relevant_activities:
+                                print(f"Aktiviteter med '{search_title}' i tittel:\n")
+                                for activity in relevant_activities:
+                                    print(activity)
+                                break
+                            else:
+                                print(f"Fant ingen aktiviteter med '{search_title}' i tittel.\n")
+                                break
+
+                        else:
+                            print("Søkefeltet kan ikke stå tomt.\n")
+
+                elif input_choice == 2:
+                    while True:
+                        search_category = input("Søk etter kategori i aktiviteter: ").strip().lower()
+                        if search_category:
+                            relevant_activities = []
+
+                            for activity in activities:
+                                if search_category in activity.category.lower():
+                                    relevant_activities.append(activity)
+
+                            if relevant_activities:
+                                print(f"Aktiviteter med '{search_category}' i kategori:\n")
+                                for activity in relevant_activities:
+                                    print(activity)
+                                break
+                            else:
+                                print(f"Fant ingen aktiviteter med '{search_category}' i kategori.\n")
+                                break
+
+                        else:
+                            print("Søkefeltet kan ikke stå tomt.\n")
+
+                elif input_choice == 3:
+                    break
+
+                else:
+                    print("Tallet finnes ikke i menyen. Prøv igjen.\n")
+
+            except ValueError:
+                print("Du må skrive inn et heltall fra menyen over.\n")
+
+    else:
+        print("Det finnes ingen registrerte aktiviteter å søke i.")
+
+
+
 def save_exit_program(activities):
     if activities:
         with open("activities.txt", "w", encoding="utf-8") as file:
