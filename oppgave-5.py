@@ -1,4 +1,4 @@
-from Components.ComponentsFive.FunctionLibrary import test
+from Components.ComponentsFive.FunctionLibrary import test, save_exit_program
 
 menu = (
     {"title": "Registrer og vis aktiviteter", "action": test},
@@ -7,10 +7,10 @@ menu = (
     {"title": "Sorter etter dato eller varighet", "action": test},
     {"title": "Marker en aktivitet som fullført", "action": test},
     {"title": "Vis antall aktiviteter, samlet estimert tid og antall fullførte", "action": test},
-    {"title": "Lagre og avslutt program", "action": test},
+    {"title": "Lagre og avslutt program", "action": save_exit_program},
 )
 
-activities = {}
+activities = []
 program_status = True
 
 while program_status:
