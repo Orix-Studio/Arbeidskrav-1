@@ -269,6 +269,43 @@ def sort_date_duration(activities):
     else:
         print("Det finnes ingen registrerte aktiviteter å sortere.")
 
+
+def mark_completed(activities):
+    if activities:
+        planned_activities = []
+
+        for activity in activities:
+            if activity.status == "planlagt":
+                planned_activities.append(activity)
+
+        if planned_activities:
+            while True:
+                for i, activity in enumerate(planned_activities, start=1):
+                    print(f"Valg: {i}")
+                    print(activity)
+
+                try:
+                    choose_activity = int(input("Velg aktivitet du vil sette til 'fullført': "))
+
+                    if 0 < choose_activity <= len(planned_activities):
+                        planned_activities[choose_activity - 1].status = "fullført"
+                        print(f"\nNy status for aktivitet:\n"
+                              f"{planned_activities[choose_activity - 1]}")
+                        break
+
+                    else:
+                        print("Valget ditt tilsvarer ingen aktiviteter i listen. Prøv igjen.\n")
+
+                except ValueError:
+                    print("Du må skrive inn et heltall tilsvarende aktiviteten du vil endre. Prøv igjen.\n")
+
+        else:
+            print("Alle aktiviteter er fullført.\n")
+
+    else:
+        print("Det finnes ingen registrerte aktiviteter.")
+
+
 def save_exit_program(activities):
     if activities:
         with open("activities.txt", "w", encoding="utf-8") as file:
